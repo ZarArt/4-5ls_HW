@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>String's task</title>
+</head>
+<body>
+	<script>
+		var userPhrase = prompt("Введите фразу", "Фраза состоит из ПЯТИ СЛОВ");
+		
+		var list = document.createElement("UL");
+		list.id = "listID";
+		document.body.appendChild(list);
+		var createdList = document.getElementById("listID");
+
+		var lettersA = 0;
+		for (var i = userPhrase.length - 1; i >= 0; i--) {
+			if (userPhrase.charAt(i) == 'а') 
+				{
+					lettersA++;
+				}
+		}
+
+		var words = userPhrase.split(' ');
+		words[0] = words[0].toUpperCase();
+		words[words.length-1] = words[words.length-1].toLowerCase();
+		words[words.length-2] = words[words.length-2].toLowerCase();
+		
+		for (var i = 0; i < words.length; i++) {
+			var elementLI = document.createElement("LI");
+			elementLI.innerHTML = words[i];
+			createdList.appendChild(elementLI);
+		}
+
+		alert(lettersA);
+	</script>		
+		</body>
+</html>

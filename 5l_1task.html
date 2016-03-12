@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Timer's task</title>
+</head>
+<body>
+		<p id="main"></p>
+		<input type="button" name="start" value="Старт" onclick="Start()"></input>
+		<input type="button" name="stop" value="Стоп" onclick="Stop()"></input>
+		<input type="button" name="reset" value="Сброс" onclick="Reset()"></input>
+		<script>
+			var clock = document.getElementById("main");
+			var counter = 0;
+			clock.innerHTML = counter + " сек.";
+			function Start() {				
+				startCounter = setInterval(function(){
+					counter++;
+					clock.innerHTML = counter + " сек.";
+				}, 1000);				
+			};
+			function Reset() {
+				clearInterval(startCounter);
+				counter = 0;
+				clock.innerHTML = counter + " сек.";
+			}
+			function Stop() {
+				clearInterval(startCounter);
+			}
+		</script>
+</body>
+</html>
